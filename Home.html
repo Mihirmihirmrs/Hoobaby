@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Resume</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Style the body */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    /* Style the header */
+    .header {
+      padding: 20px;
+      text-align: center;
+      background-color: #1abc9c;
+      color: white;
+    }
+
+    /* Style the navigation bar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #333;
+    }
+
+    /* Style the navigation links */
+    .navbar a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    /* Change the color of links on hover */
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    /* Style the main content */
+    .main {
+      display: flex;
+      margin: 20px;
+    }
+
+    /* Style the side content */
+    .side {
+      flex: 30%;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+
+    /* Style the main content */
+    .content {
+      flex: 70%;
+      background-color: white;
+      padding: 20px;
+    }
+
+    /* Style the footer */
+    .footer {
+      padding: 10px;
+      text-align: center;
+      background-color: #333;
+      color: white;
+    }
+
+    /* Make the website responsive */
+    @media screen and (max-width: 600px) {
+      .main {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Create the header -->
+  <div class="header">
+    <h1>Mihir Manas Mishra</h1>
+    <p>I'm a tech-savvy student with full of creativity and curiosity currently pursuing my bachelor's at IIT Madras and Tech Management at Physicswallah Institute Of Innovation..</p>
+  </div>
+
+  <!-- Create the navigation bar -->
+  <div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">Biography</a>
+    <a href="#">Resume</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <!-- Create the main content -->
+  <div class="main">
+    <!-- Create the side content -->
+    <div class="side">
+      <h2>Education</h2>
+      <p>-> BS in Data Science form Indian Institute of Technology, Madras<br/>
+         -> Enterpreneurship & Techmanagement from PW Institute of Innovation<br/>
+      </p>
+      <h2>Tech Skills</h2>
+      <p>-> C<br>
+         -> Java (basic)<br>
+         -> Python<br>
+         -> HTML, CSS<br>
+         -> Microsoft Office Tools<br>
+         ->power BI</p>
+      <h2>Non-Tech Skill</h2>
+      <p>-> Event Organizing<br>
+         -> Content Writing<br>
+         -> Event Management<br>
+         -> Public Speaking<br>
+         -> Strategic Analysis<br>
+         </p>
+    </div>
+
+    <!-- Create the main content -->
+    <div class="content">
+      <h2>Work Reference</h2>
+      <a
+        href="https://www.linkedin.com/in/mihir-manas-mishra/">LinkedIn</a><br>
+         <a
+         href="https://www.youtube.com/@MihirManas">YouTube</a>
+      <h2>My Achievements</h2>
+      <p>Growth and Marketing Intern at Pregrad</p>
+      <h2>My Goals</h2>
+      <p>Build a AI Model......</p>
+    </div>
+  </div>
+
+  <!-- Create the footer -->
+  <div class="footer">
+    <p>© 2024 Mihir Manas Mishra. All rights reserved.</p>
+  </div>
+
+  <!-- Add interactivity with JavaScript -->
+  <script>
+    // Initialize ScrollMagic controller
+const controller = new ScrollMagic.Controller();
+
+// Smooth scrolling
+const links = document.querySelectorAll('a[href^="#"]');
+links.forEach(link => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    const target = document.querySelector(link.hash);
+    if (target) {
+      const offset = target.getBoundingClientRect().top;
+      window.scrollTo({
+        top: offset,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+// Header animation on scroll
+const header = document.querySelector('.header');
+const scene = new ScrollMagic.Scene({
+  triggerElement: header,
+  triggerHook: 0.5, // Start animation halfway through the header
+  duration: header.offsetHeight // Animate for the header height
+})
+.addTo(controller)
+.setTween(
+  new TimelineMax()
+    .staggerTo(header.querySelectorAll('h1, p'), 0.5, { y: 0, opacity: 1, ease: Power2.easeIn }, 0.1) // Animate elements within the header
+);
+
+// Text animation on scroll (example)
+const animatedText = document.querySelector('.animated-text');
+const textScene = new ScrollMagic.Scene({
+  triggerElement: animatedText,
+  triggerHook: 0.8, // Start animation closer to the text
+  duration: 200 // Animation duration
+})
+.addTo(controller)
+.setTween(
+  new TimelineMax()
+    .to(animatedText, 1, { text: 'New Text', ease: Back.easeOut }, 0.5) // Replace with your desired animation
+);
+
+// Ensure compatibility and accessibility
+gsap.registerPlugin(ScrollMagicPlugin); // Connect GSAP and ScrollMagic
+
+  </script>
+  
+  <script src="C:\user\Mihir\ANIMATION.JS"></script>
+
+</body>
+</html>
